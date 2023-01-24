@@ -1,7 +1,6 @@
 import type { PageServerLoad, Actions } from './$types';
 import { ObjectId } from 'mongodb';
 
-import { serializeNonPOJOs } from "../lib/utils";
 import type { Todos } from '$lib/types';
 import { redirect } from '@sveltejs/kit';
 
@@ -28,7 +27,7 @@ export const load = (async ({ locals }) => {
 export const actions = {
     changeState: async ({ request, locals }) => {
         console.log('changeState');
-        
+
         const mongodb = locals.mongodb;
 
         const formData = await request.formData();
@@ -55,7 +54,7 @@ export const actions = {
 
     delete: async ({ request, locals }) => {
         console.log('delete');
-        
+
         const mongodb = locals.mongodb;
 
         const formData = await request.formData();
@@ -75,7 +74,7 @@ export const actions = {
 
     add: async ({ request, locals }) => {
         console.log('add');
-        
+
         const mongodb = locals.mongodb;
 
         const formData = await request.formData();
